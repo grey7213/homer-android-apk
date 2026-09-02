@@ -41,8 +41,19 @@ gh release create debug-20260902-explore-fix `
 在 homer-android 目录里跑就行 —— `--repo` 已经指明发到哪个仓库，
 不需要先 clone 这个仓库。
 
-发 Release 需要 `write` 权限。`read` 权限只能看已发布的，建不了新的；
-如果 `gh release create` 报 403，找我把权限提到 write。
+发 Release 需要本仓库的 Write 权限。仓库是公开的，任何人都能**看**和**下载**
+Release，但只有 collaborator 能**建** —— `read` 权限建不了。
+`gh release create` 报 403 就是这个原因，找我加权限，或者把 APK 发给我我来传。
+
+## 这里的包是什么
+
+Releases 里勾了 pre-release 的都是 **debug 构建**，供验收用：
+用 Android 调试证书签名、`applicationId` 带 `.debug` 后缀、`debuggable` 打开。
+
+**普通用户别装这些。** 正式版从
+[patcher.villainy.top](https://patcher.villainy.top/) 的下载区拿 ——
+那边的包是正式签名，能覆盖升级、保登录态。这里的 debug 包装了会是第二个独立应用，
+数据不通，而且 debuggable 应用能被连上调试器看 WebView 内容。
 
 ## tag 怎么起
 
