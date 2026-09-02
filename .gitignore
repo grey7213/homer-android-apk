@@ -1,0 +1,14 @@
+# 这个仓库只用来放 Release 附件。任何构建产物都不该被提交。
+*.apk
+*.aab
+*.apks
+*.idsig
+*.zip
+*.7z
+
+# 签名材料一律不进。包括 Release 附件也不许放。
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
